@@ -23,5 +23,12 @@ public class Main {
         // System.out.println("Test 3 ('" + test3 + "'): " + solver.isPalindrome(test3)); // true bekleniyor
         // System.out.println("Test 4 ('" + test4 + "'): " + solver.isPalindrome(test4)); // true bekleniyor
         
+        // eksiilebölüm bölüm = new eksiilebölüm();
+        // int dividend = -10;
+        // int divisor = 3;
+        // int result = bölüm.eksilibölüm(dividend, divisor);
+        // System.out.println("Sonuç: " + result);
+
+
     }
 }
