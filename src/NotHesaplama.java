@@ -18,6 +18,8 @@ public class NotHesaplama {
 
         double ortalama = (vize_notu * 0.4) + (final_notu * 0.6);
         System.out.println("Ortalamanız: " + ortalama);
+        
+        
         scan.close();
     }
 }
