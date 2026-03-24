@@ -29,11 +29,13 @@ public class Main {
         // int result = bölüm.eksilibölüm(dividend, divisor);
         // System.out.println("Sonuç: " + result);
 
-        Kopek benimKopek = new Kopek();
-        benimKopek.isim = "karabaş";
-        benimKopek.yemekYe();
-        benimKopek.havla();
-
+        // Kopek benimKopek = new Kopek();
+        // benimKopek.isim = "karabaş";
+        // benimKopek.yemekYe();
+        // benimKopek.havla();
+        
+        ArtikYil artik = new ArtikYil();
+        artik.ArtikYilHesapla(4040);
 
     }
 }
