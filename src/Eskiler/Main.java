@@ -1,3 +1,4 @@
+package Eskiler;
 public class Main {
     public static void main(String[] args) {
         //  Ogrenci sınıfından bir nesne oluşturuyoruz

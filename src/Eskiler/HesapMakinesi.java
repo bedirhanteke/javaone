@@ -1,3 +1,4 @@
+package Eskiler;
 import java.util.Scanner;
 
 public class HesapMakinesi {
@@ -51,7 +52,7 @@ public class HesapMakinesi {
             }
         }
         scan.close();
-        
+
     }
 
 }

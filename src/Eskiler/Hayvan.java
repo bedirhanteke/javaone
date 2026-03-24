@@ -1,3 +1,4 @@
+package Eskiler;
 // Üst Sınıf (Super Class / Parent)
 public class Hayvan { // 'class public' değil, 'public class' olmalı
     String isim;

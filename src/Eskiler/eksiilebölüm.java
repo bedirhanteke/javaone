@@ -1,3 +1,4 @@
+package Eskiler;
 public class eksiilebölüm {
     public int eksilibölüm(int dividend, int divisor) {
          // 1. ÖZEL DURUM (OVERFLOW) KONTROLLERİ

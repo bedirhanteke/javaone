@@ -1,3 +1,4 @@
+package Eskiler;
 // Senin kodunun temizlenmiş ve test edilmiş hali:
 public class ArtikYil {
     public void ArtikYilHesapla(int yil) {

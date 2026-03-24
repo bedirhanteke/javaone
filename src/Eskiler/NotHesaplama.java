@@ -1,3 +1,4 @@
+package Eskiler;
 import java.util.Scanner;
 
 public class NotHesaplama {
