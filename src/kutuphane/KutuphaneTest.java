@@ -59,7 +59,7 @@ public class KutuphaneTest {
                 String ISBN = scanner.nextLine();
               
                 if (ornekKitap.getISBN().equals(ISBN)) {
-                    if (ornekKitap.getSayfaSayisi() > 100) {
+                    if (ornekKitap.getSayfaSayisi() > 300) {
                         System.out.println("Bu kitap kalın.");
                     } else {
                         System.out.println("Bu kitap ince.");
