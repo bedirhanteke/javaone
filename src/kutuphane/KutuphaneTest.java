@@ -1,14 +1,15 @@
 package kutuphane;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class KutuphaneTest {
     public static void main(String[] args) {
 
-
-        kitap ornekKitap = new kitap("Örnek Kitap", "Örnek Yazar", 100, "1234567890");
-        System.out.println(ornekKitap);
+        int sayac = 0;
+        ArrayList<kitap> kitapListesi = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
+
 
 
 
@@ -23,31 +24,50 @@ public class KutuphaneTest {
 
 
 
-
             if (secim == 1) {
-                System.out.print("Kitap Adı: ");
-                String ad = scanner.nextLine();
-                System.out.print("Yazar: ");
-                String yazar = scanner.nextLine();
-                System.out.print("Sayfa Sayısı: ");
-                int sayfaSayisi = scanner.nextInt();
-                scanner.nextLine(); 
-                System.out.print("ISBN: ");
-                String ISBN = scanner.nextLine();
-
-                kitap yeniKitap = new kitap(ad, yazar, sayfaSayisi, ISBN);
-                System.out.println("Kitap eklendi: " + yeniKitap);
-    } 
+                boolean devamEt = true;
+                while (devamEt) {
+                    System.out.print("Kitap Adı: ");
+                    String ad = scanner.nextLine();
+                    System.out.print("Yazar: ");
+                    String yazar = scanner.nextLine();
+                    System.out.print("Sayfa Sayısı: ");
+                    int sayfaSayisi = scanner.nextInt();
+                    scanner.nextLine(); 
+                    System.out.print("ISBN: ");
+                    String ISBN = scanner.nextLine();
+                    //arraylist'e yeni kitap eklemece
+                    kitap örnekKitap = new kitap(ad, yazar, sayfaSayisi, ISBN);
+                    kitapListesi.add(örnekKitap);
+                    System.out.println("Kitap eklendi: " + örnekKitap);
+                    sayac++;
+                    
+                    if (sayac >= 5) {
+                        System.out.println("Minimum kitap sayısına ulaşıldı. Kitap eklemek ister misiniz? (Evet/Hayır)");
+                        String cevap = scanner.nextLine();
+                        if (cevap.equalsIgnoreCase("Hayır")) {  
+                            devamEt = false;
+                        }
+                    }
+                }
+            } 
             
             
             else if (secim == 2) {
                 System.out.print("Durumunu değiştirmek istediğiniz kitabın ISBN'sini girin: ");
                 String ISBN = scanner.nextLine();
+                boolean bulundu = false;
                 
-                if (ornekKitap.getISBN().equals(ISBN)) {
-                    boolean yeniDurum = ornekKitap.durumDegistir();
-                    System.out.println("Kitabın ödünç verme durumu değişti. Şu an ödünç verildi mi? " + yeniDurum);
-                } else {
+                for (kitap k : kitapListesi) {
+                    if (k.getISBN().equals(ISBN)) {
+                        boolean yeniDurum = k.durumDegistir();
+                        System.out.println("Kitabın ödünç verme durumu değişti. Şu an ödünç verildi mi? " + yeniDurum);
+                        bulundu = true;
+                        break;
+                    }
+                }
+                
+                if (!bulundu) {
                     System.out.println("Bu ISBN'ye sahip bir kitap bulunamadı.");
                 }
             } 
@@ -57,14 +77,21 @@ public class KutuphaneTest {
             else if (secim == 3) {
                 System.out.print("Kalınlığını kontrol etmek istediğiniz kitabın ISBN'sini girin: ");
                 String ISBN = scanner.nextLine();
+                boolean bulundu = false;
               
-                if (ornekKitap.getISBN().equals(ISBN)) {
-                    if (ornekKitap.getSayfaSayisi() > 300) {
-                        System.out.println("Bu kitap kalın.");
-                    } else {
-                        System.out.println("Bu kitap ince.");
+                for (kitap k : kitapListesi) {
+                    if (k.getISBN().equals(ISBN)) {
+                        if (k.getSayfaSayisi() > 300) {
+                            System.out.println("Bu kitap kalın.");
+                        } else {
+                            System.out.println("Bu kitap ince.");
+                        }
+                        bulundu = true;
+                        break;
                     }
-                } else {
+                }
+                
+                if (!bulundu) {
                     System.out.println("Bu ISBN'ye sahip bir kitap bulunamadı.");
                 }
 
@@ -81,8 +108,9 @@ public class KutuphaneTest {
             else {
                 System.out.println("Geçersiz seçim, lütfen tekrar deneyin.");
             }
-
+        }
+        
         scanner.close();
-    }}}
-
+    }
+}
 
