@@ -1,3 +1,4 @@
+package Ödev;
 public class Nakit implements OdemeYontemi {
     @Override
     public void odemeYap(double tutar) {

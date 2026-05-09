@@ -1,3 +1,4 @@
+package Ödev;
 public class KrediKarti implements OdemeYontemi {
     private String kartNo;
     private String kartSahibi;
