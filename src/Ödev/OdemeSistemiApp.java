@@ -1,8 +1,11 @@
 package Ödev;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class OdemeSistemiApp {
     public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
         
         // Ortak bir arayüz (OdemeYontemi) tipinde bir liste oluşturuyoruz.
         // Bu sayede KrediKarti, Nakit gibi farklı tipleri aynı kutuda toplayabiliriz.
@@ -32,19 +35,30 @@ public class OdemeSistemiApp {
             if (yontem instanceof KrediKarti) 
             { 
                 
+                System.out.println("Kredi kartı için ödeme tutarını girin:");
+                double tutar = scanner.nextDouble();
+                
+                System.out.println("Taksit sayısını girin:");
+                int taksit = scanner.nextInt();
+                
                 // Interface'ten miras alınan standart tek çekim ödeme metodu
-                yontem.odemeYap(1500.0);
+                yontem.odemeYap(tutar);
                 
                 // DOWNCASTING (Aşağı Dönüştürme) & OVERLOADING (Aşırı Yükleme):
                 // 'yontem' referansını parantez içinde KrediKarti'na dönüştürüyoruz.
                 // Böylece sadece KrediKarti sınıfında bulunan "2 parametreli (taksitli)" özel metoda erişebiliyoruz.
-                ((KrediKarti) yontem).odemeYap(1500.0, 3);
+                ((KrediKarti) yontem).odemeYap(tutar, taksit);
                 
             } else { // 0 değilse (yani 1. indeks ise) Nakit olduğunu biliyoruz
                 
+                System.out.println("Nakit için ödeme tutarını girin:");
+                double tutar = scanner.nextDouble();
+                
                 // Nakit sınıfı içindeki ezilmiş (Override edilmiş) ödeme metodu çalışır
-                yontem.odemeYap(500.0);
+                yontem.odemeYap(tutar);
             }
         }
+        
+        scanner.close();
     }
 }
