@@ -29,7 +29,8 @@ public class OdemeSistemiApp {
             yontem.islemDetayi();
             
             // İndeks sırasına bakarak manuel bir kontrol yapıyoruz.
-            if () { // Eğer 0. indeks ise bunun KrediKarti olduğunu biliyoruz
+            if (yontem instanceof KrediKarti) 
+            { 
                 
                 // Interface'ten miras alınan standart tek çekim ödeme metodu
                 yontem.odemeYap(1500.0);
