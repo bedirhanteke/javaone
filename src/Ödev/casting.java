@@ -7,7 +7,7 @@ class Hayvan {
     }
 }
 
-
+//Eğer nesneyi direkt child class tipinde oluşturursan cast gerekmez.
 // ================= CHILD CLASS =================
 class Kedi extends Hayvan {
 
